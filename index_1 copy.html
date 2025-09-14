@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bách khoa toàn thư mở về khoa học</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="style.css" class="css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="./font-awesome-6.5.1-pro-full/css/all.css" />
     <link
       rel="shortcut icon"
@@ -14,7 +17,7 @@
     />
   </head>
   <body>
-    <div class="flex items-center space px-10 py-2">
+    <div class="flex items-center px-10 py-2">
       <div class="flex items-center gap-5">
         <i class="fa-light fa-bars"></i>
         <div class="flex items-center gap-2">
@@ -23,7 +26,7 @@
             alt=""
             width="50"
           />
-          <div class="">
+          <div>
             <img
               src="https://vi.wikipedia.org/static/images/mobile/copyright/wikipedia-wordmark-en.svg"
               alt=""
@@ -36,22 +39,21 @@
             />
           </div>
         </div>
-        <div class="border border-gray-400 px-3 py-1">
+        <div class="border border-gray-400 px-3 py-1 flex items-center">
           <i class="fa-light fa-magnifying-glass mr-2"></i>
           <input
             type="text"
             placeholder="Tìm kiếm trên Bách khoa toàn thư"
-            width="150"
-            class=""
+            class="outline-none w-40 px-1"
           />
-          <button class="">Tìm kiếm</button>
+          <button
+            class="ml-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+          >
+            Tìm kiếm
+          </button>
         </div>
       </div>
-      <div class="">
-        <div class=""></div>
-        <div class=""></div>
-        <div class=""></div>
-      </div>
+      <!-- Extra space for future header items -->
     </div>
     <div class="px-10 mt-5">
       <div class="flex border py-5 bg-green-50/30 border-gray-200">
@@ -61,7 +63,7 @@
         </div>
         <div class="text-center mx-auto">
           <p>1.296.239 bài viết và 1.003.272 thành viên</p>
-          <ul class="flex py-5">
+          <ul class="flex gap-4">
             <li><a href="">Tạo bài</a></li>
             <li><a href="">Sửa bài</a></li>
             <li><a href="">Tải hình</a></li>
@@ -71,11 +73,9 @@
         </div>
       </div>
     </div>
-    <div class="">
-      <div class="">
-        <h1>Bài viết chọn lọc</h1>
-      </div>
-      <div class="baiviet">
+    <div class="mt-8 px-10">
+      <h1 class="text-2xl font-bold mb-2">Bài viết chọn lọc</h1>
+      <div class="baiviet mb-2">
         Chiến tranh thế giới thứ hai, còn gọi là Chiến tranh thế giới II hoặc
         Thế chiến II (tiếng Anh: World War II hoặc Second World War), là cuộc
         xung đột quân sự toàn cầu kéo dài từ năm 1939 đến năm 1945, liên quan
@@ -90,7 +90,9 @@
         thành lập Liên Hợp Quốc và sự khởi đầu của Chiến tranh Lạnh giữa Hoa Kỳ
         và Liên Xô.
       </div>
-      <div class=""><a href="">Xem chi tiết</a></div>
+      <div>
+        <a class="text-blue-600 hover:underline" href="">Xem chi tiết</a>
+      </div>
     </div>
   </body>
 </html>
