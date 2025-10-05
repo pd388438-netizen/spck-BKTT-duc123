@@ -4,3 +4,29 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@media only screen and (max-width: 795px) {
+  .body {
+    font-size: 14px;
+  }
+  p {
+    font-size: 14px;
+    display: block;
+  }
+
+  img {
+    width: 90px;
+    height: 90px;
+  }
+  .img {
+    width: 90px;
+  }
+
+  .div {
+    font-size: smaller;
+  }
+  .mgm {
+    width: 120px;
+    height: 10px;
+  }
+}
