@@ -1,19 +1,36 @@
-const title = document.getElementById("title");
-const content = document.getElementById("content");
-const img = document.getElementById("img");
-
-const queryString = window.location.search;
-console.log(queryString.split("?")[1]);
-
+// lây ra id của thẻ chứa các món ăn
+const foodContainer = document.getElementById("post-container");
 // lấy ra danh sách món ăn từ localStorage
 const posts = JSON.parse(localStorage.getItem("posts")) || [];
+// duyệt qua từng món ăn và tạo thẻ HTML tương ứng
+let html = ``;
 
-// tìm món ăn có id tương ứng
-const post = posts.find((f) => f.id === Number(queryString.split("?")[1]));
+posts.forEach((post) => {
+  html += `
+    <div id="post" class="border border-gray-200 shadow-sm p-3">
+        <div id="post-title" class="text-xl"><h1>${post.title}</h1></div>
+        <div class="flex items-center gap-5">
+          <div id="post-content" class="">
+            <p>
+              ${post.content}
+            </p>
+              cum nobis tempora saepe repellendus sapiente numquam architecto,
+              obcaecati quas dignissimos molestiae nesciunt!
+            </p>
+          </div>
+        </div>
 
-// hiển thị thông tin món ăn lên trang
-if (post) {
-  title.innerText = post.title;
-  content.innerText = post.content;
-  img.src = post.image;
-}
+        <div id="post-img" class="">
+          <img
+            class="w-full h-48"
+            id="post-img"
+            src="${post.image}"
+            alt=""
+          />
+        </div>
+      </div>
+    `;
+});
+
+// chèn các thẻ HTML vào trong thẻ chứa món ăn
+foodContainer.innerHTML = html;
