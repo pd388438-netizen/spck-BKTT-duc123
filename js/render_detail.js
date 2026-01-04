@@ -17,5 +17,5 @@ console.log(post);
 if (post) {
   postName.innerText = post.title;
   postcontent.innerText = post.content;
-  postImg.src = post.image;
+  postImg.src = post.img;
 }

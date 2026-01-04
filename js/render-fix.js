@@ -25,6 +25,7 @@ posts.forEach((post) => {
             alt=""
           />
         </div>
+        <a class="hover:text-blue-700 underline" href="../html/Fix.html?${post.id}">Sửa bài viết</a>
       </div>
     `;
 });

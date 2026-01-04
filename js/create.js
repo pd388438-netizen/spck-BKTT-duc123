@@ -26,5 +26,5 @@ btnCreate.addEventListener("click", function () {
   const posts = JSON.parse(localStorage.getItem("posts")) || [];
   posts.push(post);
   localStorage.setItem("posts", JSON.stringify(posts));
-  window.location.href = "../html/index.html";
+  window.location.href = "/index.html";
 });
