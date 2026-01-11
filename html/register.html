@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./css/style.css" class="css" />
+    <link rel="stylesheet" href="./font-awesome-6.5.1-pro-full/css/all.css" />
+    <link
+      rel="shortcut icon"
+      href="https://vi.wikipedia.org/static/favicon/wikipedia.ico"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="flex items-center space px-10 py-2">
+      <div class="flex items-center gap-5">
+        <i class="fa-light fa-bars"></i>
+        <div class="flex items-center gap-2">
+          <img
+            src="https://vi.wikipedia.org/static/images/icons/wikipedia.png"
+            alt=""
+            width="50"
+          />
+          <div class="">
+            <img
+              src="https://vi.wikipedia.org/static/images/mobile/copyright/wikipedia-wordmark-en.svg"
+              alt=""
+              height="18"
+              width="120"
+            />
+            <img
+              class="mgm"
+              src="https://vi.wikipedia.org/static/images/mobile/copyright/wikipedia-tagline-vi.svg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="border border-gray-400 px-3 py-1">
+          <i class="fa-light fa-magnifying-glass mr-2"></i>
+          <input
+            id="find"
+            type="text"
+            placeholder="Tìm kiếm trên Bách khoa toàn thư"
+            width="150"
+            class=""
+          />
+          <button id="btn-search" class="">Tìm kiếm</button>
+        </div>
+      </div>
+      <div class="">
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+      </div>
+    </div>
+    <div class="flex border py-5 bg-green-50/30 border-gray-200">
+      <div class="text-center mx-auto">
+        <h1 class="text-xl">Wikipedia</h1>
+        <p>Bạn chính là tác giả của Wikipedia</p>
+      </div>
+      <div class="text-center mx-auto">
+        <p>1.296.239 bài viết và 1.003.272 thành viên</p>
+        <ul class="flex py-5 gap-3">
+          <li>
+            <a
+              class="hover:to-blue-900 text-blue-500 underline"
+              href="./html/Create.html"
+              >Tạo bài
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="hover:to-blue-900 text-blue-500 underline"
+              href="./html/all and delete.html"
+              >Sửa bài
+            </a>
+          </li>
+          <li>
+            <a
+              class="hover:to-blue-900 text-blue-500 underline"
+              href="./html/all and delete.html"
+              >Xóa bài
+            </a>
+          </li>
+
+          <li>
+            <a class="hover:to-blue-900 text-blue-500 underline" href=""
+              >Tải hình
+            </a>
+          </li>
+
+          <li>
+            <a class="hover:to-blue-900 text-blue-500 underline" href=""
+              >Quy tắc
+            </a>
+          </li>
+          <li>
+            <a class="hover:to-blue-900 text-blue-500 underline" href=""
+              >Đặt câu hỏi
+            </a>
+          </li>
+          <li>
+            <a
+              class="hover:to-blue-900 text-blue-500 underline"
+              href="./html/login.html"
+              >Đăng nhập
+            </a>
+          </li>
+          <li>
+            <a
+              class="hover:to-blue-900 text-blue-500 underline"
+              href="./html/register.html"
+              >Đăng ký
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-3xl mx-auto p-6 bg-white shadow-md rounded">
+      <div class="mb-4">
+        <label for="title" class="block text-gray-700 font-semibold mb-2"
+          >Tiêu đề bài viết</label
+        >
+        <input
+          id="tieu-de"
+          type="text"
+          id="title"
+          name="title"
+          class="w-full px-3 py-2 border border-gray-300 rounded"
+          placeholder="Nhập tiêu đề bài viết"
+        />
+      </div>
+      <div class="mb-4">
+        <label for="img" class="block text-gray-700 font-semibold mb-2"
+          >Ảnh bài viết</label
+        >
+        <input
+          id="anh"
+          placeholder="Đường link ảnh"
+          type="text"
+          name="img"
+          class="w-full px-3 py-2 border border-gray-300 rounded"
+        />
+      </div>
+      <div class="mb-4">
+        <label for="content" class="block text-gray-700 font-semibold mb-2"
+          >Nội dung bài viết</label
+        >
+        <textarea
+          id="content"
+          name="content"
+          rows="10"
+          class="w-full px-3 py-2 border border-gray-300 rounded"
+          placeholder="Nhập nội dung bài viết"
+        ></textarea>
+      </div>
+      <div class="text-center">
+        <button
+          id="btn-create"
+          type="submit"
+          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Tạo bài viết
+        </button>
+      </div>
+    </div>
+    <footer
+      class="bg-gray-100 border-t border-gray-300 mt-8 py-6 text-sm text-gray-700"
+    >
+      <div
+        class="flex flex-col md:flex-row items-center justify-between px-10 gap-4"
+      >
+        <div class="flex items-center gap-2">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Notification-icon-Wikipedia-logo.svg/72px-Notification-icon-Wikipedia-logo.svg.png"
+            alt="Wikipedia logo"
+            width="32"
+            height="32"
+            class="inline-block"
+          />
+          <span class="font-semibold">Wikipedia</span>
+          <span class="hidden md:inline">— Bách khoa toàn thư mở</span>
+        </div>
+        <div class="text-center md:text-right">
+          <span>
+            Nội dung được phát hành theo
+            <a href="" class="underline text-blue-600 hover:text-blue-800"
+              >CC BY-SA 3.0</a
+            >
+            •
+            <a href="" class="underline text-blue-600 hover:text-blue-800"
+              >Điều khoản sử dụng</a
+            >
+          </span>
+          <br class="md:hidden" />
+          <span class="block md:inline"
+            >© 2025 Wikipedia | Phiên bản thử nghiệm</span
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
