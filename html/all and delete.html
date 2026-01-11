@@ -6,7 +6,7 @@
     <title>Bách khoa toàn thư mở về khoa học</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="style.css" class="css" />
-    <link rel="stylesheet" href="./font-awesome-6.5.1-pro-full/css/all.css" />
+    <link rel="stylesheet" href="../font-awesome-6.5.1-pro-full/css/all.css" />
     <link
       rel="shortcut icon"
       href="https://vi.wikipedia.org/static/favicon/wikipedia.ico"
@@ -24,17 +24,17 @@
             width="50"
           />
           <div class="">
-            <img
-              src="https://vi.wikipedia.org/static/images/mobile/copyright/wikipedia-wordmark-en.svg"
-              alt=""
-              height="18"
-              width="120"
-            />
-            <img
-              class="mgm"
-              src="https://vi.wikipedia.org/static/images/mobile/copyright/wikipedia-tagline-vi.svg"
-              alt=""
-            />
+            <a href="../index.html"
+              ><img
+                src="https://vi.wikipedia.org/static/images/mobile/copyright/wikipedia-wordmark-en.svg"
+                alt=""
+                height="18"
+                width="120" />
+              <img
+                class="mgm"
+                src="https://vi.wikipedia.org/static/images/mobile/copyright/wikipedia-tagline-vi.svg"
+                alt=""
+            /></a>
           </div>
         </div>
         <div class="border border-gray-400 px-3 py-1">
@@ -63,23 +63,49 @@
         <p>1.296.239 bài viết và 1.003.272 thành viên</p>
         <ul class="flex py-5 gap-3">
           <li>
-            <button class="border border-gray-200 bg-blue-400">
-              <a href="Create.html">Tạo bài </a>
-            </button>
+            <a
+              class="hover:to-blue-900 text-blue-500 underline"
+              href="./html/Create.html"
+              >Tạo bài
+            </a>
           </li>
 
-          <li><a href="all.html">Sửa bài </a></li>
+          <li>
+            <a
+              class="hover:to-blue-900 text-blue-500 underline"
+              href="./html/all and delete.html"
+              >Sửa bài
+            </a>
+          </li>
+          <li>
+            <a
+              class="hover:to-blue-900 text-blue-500 underline"
+              href="./html/all and delete.html"
+              >Xóa bài
+            </a>
+          </li>
 
-          <li><a href="">Tải hình </a></li>
+          <li>
+            <a class="hover:to-blue-900 text-blue-500 underline" href=""
+              >Tải hình
+            </a>
+          </li>
 
-          <li><a href="">Quy tắc </a></li>
-
-          <li><a href="">Đặt câu hỏi </a></li>
+          <li>
+            <a class="hover:to-blue-900 text-blue-500 underline" href=""
+              >Quy tắc
+            </a>
+          </li>
+          <li>
+            <a class="hover:to-blue-900 text-blue-500 underline" href=""
+              >Đặt câu hỏi
+            </a>
+          </li>
         </ul>
       </div>
     </div>
     <div id="title" class="">
-      <h1>Các bài viết có thể sửa</h1>
+      <h1></h1>
     </div>
     <div id="post-container" class="grid grid-cols-3 px-10 gap-5 mt-5"></div>
     <div class="px-10 mt-5 flex flex-wrap gap-5"></div>
@@ -118,6 +144,8 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="../js/render-fix.js"></script>
   </body>
 </html>

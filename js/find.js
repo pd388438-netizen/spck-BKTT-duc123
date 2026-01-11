@@ -2,6 +2,11 @@
 const postContainer = document.getElementById("post-container");
 // lấy ra danh sách món ăn từ localStorage
 const posts = JSON.parse(localStorage.getItem("posts")) || [];
+const post = posts.find((f) => f.id === Number(queryString.split("?")[1]));
+btn -
+  search.addEventListener("click", function () {
+    const tieuDe = document.getElementById("tieu-de").value;
+  });
 // duyệt qua từng món ăn và tạo thẻ HTML tương ứng
 let html = ``;
 
@@ -36,6 +41,3 @@ posts.forEach((post) => {
       </div>
     `;
 });
-
-// chèn các thẻ HTML vào trong thẻ chứa món ăn
-postContainer.innerHTML = html;
