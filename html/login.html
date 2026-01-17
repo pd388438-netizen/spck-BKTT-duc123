@@ -3,10 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="./css/style.css" class="css" />
-    <link rel="stylesheet" href="./font-awesome-6.5.1-pro-full/css/all.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="../css/style.css" class="css" />
+    <link rel="stylesheet" href="../font-awesome-6.5.1-pro-full/css/all.css" />
     <link
       rel="shortcut icon"
       href="https://vi.wikipedia.org/static/favicon/wikipedia.ico"
@@ -113,12 +123,57 @@
             <a
               class="hover:to-blue-900 text-blue-500 underline"
               href="./html/register.html"
-              >Đăng ký
+              >Đăng nhập
             </a>
           </li>
         </ul>
       </div>
     </div>
+    <div class="max-w-3xl mx-auto p-6 bg-white shadow-md rounded">
+      <form
+        id="login-form"
+        class="h-screen items-center justify-center justify-items-center"
+        action=""
+      >
+        <h1
+          class="justify-center items-center justify-content-center text-2xl font-semibold"
+        >
+          Login to your account
+        </h1>
+        <fieldset
+          class="fieldset bg-base-200 border-base-300 rounded-box w-full border p-4"
+        >
+          <legend
+            class="fieldset-legend justify-center items-center justify-content-center text-lg font-semibold"
+          >
+            Login
+          </legend>
+
+          <label class="label">Email</label>
+          <input
+            id="email"
+            type="email"
+            class="input w-full"
+            placeholder="Email"
+          />
+
+          <label class="label">Password</label>
+          <input
+            id="password"
+            type="password"
+            class="input w-full"
+            placeholder="Password"
+          />
+
+          <button class="btn btn-neutral mt-4">Login</button>
+          <a class="text-blue-500 underline" href="register.html"
+            >Register here if you don't have an account</a
+          >
+        </fieldset>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/login.js"></script>
     <footer
       class="bg-gray-100 border-t border-gray-300 mt-8 py-6 text-sm text-gray-700"
     >

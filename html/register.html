@@ -3,10 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Register</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="./css/style.css" class="css" />
-    <link rel="stylesheet" href="./font-awesome-6.5.1-pro-full/css/all.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="../css/style.css" class="css" />
+    <link rel="stylesheet" href="../font-awesome-6.5.1-pro-full/css/all.css" />
     <link
       rel="shortcut icon"
       href="https://vi.wikipedia.org/static/favicon/wikipedia.ico"
@@ -120,53 +130,65 @@
       </div>
     </div>
     <div class="max-w-3xl mx-auto p-6 bg-white shadow-md rounded">
-      <div class="mb-4">
-        <label for="title" class="block text-gray-700 font-semibold mb-2"
-          >Tiêu đề bài viết</label
+      <form
+        id="register-form"
+        class="h-screen items-center justify-center justify-items-center"
+        action=""
+      >
+        <h1
+          class="justify-center items-center justify-content-center text-2xl font-semibold"
         >
-        <input
-          id="tieu-de"
-          type="text"
-          id="title"
-          name="title"
-          class="w-full px-3 py-2 border border-gray-300 rounded"
-          placeholder="Nhập tiêu đề bài viết"
-        />
-      </div>
-      <div class="mb-4">
-        <label for="img" class="block text-gray-700 font-semibold mb-2"
-          >Ảnh bài viết</label
+          Create an account to post your write!
+        </h1>
+        <fieldset
+          class="fieldset bg-base-200 border-base-300 rounded-box w-full border p-4"
         >
-        <input
-          id="anh"
-          placeholder="Đường link ảnh"
-          type="text"
-          name="img"
-          class="w-full px-3 py-2 border border-gray-300 rounded"
-        />
-      </div>
-      <div class="mb-4">
-        <label for="content" class="block text-gray-700 font-semibold mb-2"
-          >Nội dung bài viết</label
-        >
-        <textarea
-          id="content"
-          name="content"
-          rows="10"
-          class="w-full px-3 py-2 border border-gray-300 rounded"
-          placeholder="Nhập nội dung bài viết"
-        ></textarea>
-      </div>
+          <legend
+            class="fieldset-legend justify-center items-center justify-content-center text-lg font-semibold"
+          >
+            Register
+          </legend>
+
+          <label class="label">Email</label>
+          <input
+            id="email"
+            type="email"
+            class="input w-full"
+            placeholder="Email"
+          />
+
+          <label class="label">Password</label>
+          <input
+            id="password"
+            type="password"
+            class="input w-full"
+            placeholder="Password"
+          />
+
+          <label class="label">Confirm Password</label>
+          <input
+            id="repeatPassword"
+            type="password"
+            class="input w-full"
+            placeholder="Confirm Password"
+          />
+
+          <button class="btn btn-neutral mt-4">Register</button>
+        </fieldset>
+      </form>
+
       <div class="text-center">
         <button
-          id="btn-create"
+          id="btn-create-user"
           type="submit"
           class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
-          Tạo bài viết
+          Tạo tài khoản
         </button>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/register.js"></script>
     <footer
       class="bg-gray-100 border-t border-gray-300 mt-8 py-6 text-sm text-gray-700"
     >
