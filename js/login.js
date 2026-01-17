@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       text: "Đăng nhập thành công!",
       icon: "success",
       willClose: () => {
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
       },
     });
   });
