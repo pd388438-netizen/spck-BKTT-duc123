@@ -54,7 +54,7 @@
         <a href="./html/login.html" class="btn">Đăng nhập</a>
       </button>
 
-      <details class="dropdown dropdown-bottom dropdown-end">
+      <details class="dropdown dropdown-bottom dropdown-end" id="greeting">
         <div class="profile"></div>
         <summary
           class="btn m-1 h-10 w-10 flex items-center justify-center rounded-full bg-red-500"
@@ -65,9 +65,9 @@
           class="menu dropdown-content bg-gray-800/50 rounded-box z-1 p-2 shadow-sm w-64"
         >
           <li class="p-2 hover:bg-gray-800">
-            <a><h1 id="greeting" class="text-sm">Xin chào: user</h1></a>
+            <a><h1 id="display-name" class="text-sm">Xin chào: user</h1></a>
           </li>
-          <li class="p-2 hover:bg-gray-800">Đăng xuất</li>
+          <li id="btn-logout" class="p-2 hover:bg-gray-800">Đăng xuất</li>
         </ul>
       </details>
     </div>
@@ -299,9 +299,22 @@
         </div>
       </div>
     </footer>
-
-    <script src="./js/login.js"></script>
-    <script src="./js/check-login.js"></script>
-    <script src="./js/render.js"></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"
+    ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="../firebase.config.js"></script>
+    <script defer src="./js/login.js"></script>
+    <script defer src="./js/check-login.js"></script>
+    <script defer src="./js/render.js"></script>
   </body>
 </html>

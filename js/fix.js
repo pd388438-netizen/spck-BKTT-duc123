@@ -1,58 +1,46 @@
-const btnFixpost = document.getElementById("btn-fix");
-const tieude = document.getElementById("fix-tieu-de");
-const description = document.getElementById("fix-content");
-const image = document.getElementById("fix-anh");
-let imagePreview = document.getElementById("image-preview");
+const fixForm = document.getElementById("fix");
+const id = window.location.search.substring(1); // lấy id sản phẩm từ query string
+console.log(id);
+// tạo bảng products trong firestore
+const db = firebase.firestore();
 
-const queryString = window.location.search;
-// lấy ra danh sách món ăn từ localStorage
-const posts = JSON.parse(localStorage.getItem("posts")) || [];
+// lấy dữ liệu sản phẩm từ firestore và hiển thị lên form nhờ vào id lấy được ở trên
+db.collection("products")
+  .doc(id)
+  .get()
+  .then((doc) => {
+    let data = doc.data();
+    console.log(data);
+    // điền dữ liệu vào form
+    fixForm.name.value = data.name;
+    fixForm.price.value = data.price;
+    fixForm.image.value = data.image;
+  });
 
-// lấy id từ URL
-const postId = Number(queryString.split("?")[1]);
+fixForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let name = e.target.name.value;
+  let price = e.target.price.value;
+  let image = e.target.image.value;
+  // các con tự kiểm tra dữ liệu (validation ở đây đây) rồi mới submit lên server
+  console.log({ name, price, image });
 
-// tìm bài viết có id tương ứng
-const post = posts.find((p) => p.id == postId);
-console.log(post);
-// hiển thị thông tin bài viết lên các input để chỉnh sửa
-if (post) {
-  tieude.value = post.title;
-  description.value = post.content;
-  image.value = post.img;
-  imagePreview.src = post.img;
-}
-
-btnFixpost.addEventListener("click", () => {
-  // kiểm tra dữ liệu hợp lệ
-  if (!tieude.value) {
-    alert("Vui lòng nhập tiêu đề bài viết");
-    return;
-  }
-  if (!description.value) {
-    alert("Vui lòng nhập mô tả bài viết");
-    return;
-  }
-  if (!image.value) {
-    alert("Vui lòng nhập URL hình ảnh bài viết");
-    return;
-  }
-
-  // tìm index của bài viết cần cập nhật
-  const postIndex = posts.findIndex((p) => p.id === postId);
-
-  // cập nhật thông tin món ăn
-  if (postIndex !== -1) {
-    posts[postIndex] = {
-      id: postId, // giữ nguyên id
-      title: tieude.value,
-      content: description.value,
-      img: image.value,
-    };
-
-    // lưu danh sách bài viết vào localStorage
-    localStorage.setItem("posts", JSON.stringify(posts));
-
-    // chuyển về trang danh sách bài viết
-    window.location.href = "/index.html";
-  }
+  // Add a new document with a generated id.
+  db.collection("products")
+    .doc(id)
+    .update({
+      name: name,
+      price: price,
+      image: image,
+    })
+    .then((docRef) => {
+      console.log("Tạo thành  công sp ");
+      Swal.fire("Chỉnh sửa sản phẩm thành công!", "", "success").then(() => {
+        window.location.href = "/index.html";
+      });
+    })
+    .catch((error) => {
+      console.error("Error adding document: ", error);
+      alert("Error adding document: " + error.message);
+    });
 });

@@ -1,10 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bách khoa toàn thư mở về khoa học</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link rel="stylesheet" href="style.css" class="css" />
     <link rel="stylesheet" href="./font-awesome-6.5.1-pro-full/css/all.css" />
     <link
@@ -78,7 +88,10 @@
         </div>
       </div>
 
-      <div class="max-w-3xl mx-auto p-6 bg-white shadow-md rounded">
+      <form
+        id="create-form"
+        class="max-w-3xl mx-auto p-6 bg-white shadow-md rounded"
+      >
         <div class="mb-4">
           <label for="title" class="block text-gray-700 font-semibold mb-2"
             >Tiêu đề bài viết</label
@@ -93,6 +106,90 @@
           />
         </div>
         <div class="mb-4">
+          <label for="content" class="block text-gray-700 font-semibold mb-2"
+            >Nội dung chính</label
+          >
+          <textarea
+            id="content"
+            name="content"
+            rows="10"
+            class="w-full px-3 py-2 border border-gray-300 rounded"
+            placeholder="Nhập nội dung chính"
+          ></textarea>
+        </div>
+        <div class="mb-4">
+          <label for="title" class="block text-gray-700 font-semibold mb-2"
+            >Tiêu đề 1</label
+          >
+          <input
+            id="tieu-de1"
+            type="text"
+            name="title"
+            class="w-full px-3 py-2 border border-gray-300 rounded"
+            placeholder="Nhập tiêu 1"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="content" class="block text-gray-700 font-semibold mb-2"
+            >Nội dung 1</label
+          >
+          <textarea
+            id="content-1"
+            name="content-1"
+            rows="10"
+            class="w-full px-3 py-2 border border-gray-300 rounded"
+            placeholder="Nhập nội dung 1"
+          ></textarea>
+        </div>
+        <div class="mb-4">
+          <label for="title" class="block text-gray-700 font-semibold mb-2"
+            >Tiêu đề 2</label
+          >
+          <input
+            id="tieu-de2"
+            type="text"
+            name="title"
+            class="w-full px-3 py-2 border border-gray-300 rounded"
+            placeholder="Nhập tiêu đề 2"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="content" class="block text-gray-700 font-semibold mb-2"
+            >Nội dung 2</label
+          >
+          <textarea
+            id="content-2"
+            name="content-2"
+            rows="10"
+            class="w-full px-3 py-2 border border-gray-300 rounded"
+            placeholder="Nhập nội dung 2"
+          ></textarea>
+        </div>
+        <div class="mb-4">
+          <label for="title" class="block text-gray-700 font-semibold mb-2"
+            >Tiêu đề 3</label
+          >
+          <input
+            id="tieu-de3"
+            type="text"
+            name="title"
+            class="w-full px-3 py-2 border border-gray-300 rounded"
+            placeholder="Nhập tiêu đề 3"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="content" class="block text-gray-700 font-semibold mb-2"
+            >Nội dung 3</label
+          >
+          <textarea
+            id="content-3"
+            name="content-3"
+            rows="10"
+            class="w-full px-3 py-2 border border-gray-300 rounded"
+            placeholder="Nhập nội dung 3"
+          ></textarea>
+        </div>
+        <div class="mb-4">
           <label for="img" class="block text-gray-700 font-semibold mb-2"
             >Ảnh bài viết</label
           >
@@ -104,18 +201,7 @@
             class="w-full px-3 py-2 border border-gray-300 rounded"
           />
         </div>
-        <div class="mb-4">
-          <label for="content" class="block text-gray-700 font-semibold mb-2"
-            >Nội dung bài viết</label
-          >
-          <textarea
-            id="content"
-            name="content"
-            rows="10"
-            class="w-full px-3 py-2 border border-gray-300 rounded"
-            placeholder="Nhập nội dung bài viết"
-          ></textarea>
-        </div>
+
         <div class="text-center">
           <button
             id="btn-create"
@@ -125,7 +211,7 @@
             Tạo bài viết
           </button>
         </div>
-      </div>
+      </form>
     </div>
     <footer
       class="bg-gray-100 border-t border-gray-300 mt-8 py-6 text-sm text-gray-700"
@@ -162,6 +248,20 @@
         </div>
       </div>
     </footer>
-    <script src="../js/create.js"></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"
+    ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="../firebase.config.js"></script>
+    <script defer src="../js/create.js"></script>
   </body>
 </html>

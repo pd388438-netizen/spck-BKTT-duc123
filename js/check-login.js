@@ -1,18 +1,34 @@
-document.addEventListener("DOMContentLoaded", function () {
-  var btnLogin = document.getElementById("btnLogin");
-  var profile = document.getElementById("profile");
-  var greeting = document.getElementById("greeting");
+const greeting = document.getElementById("greeting");
+const displayName = document.getElementById("display-name");
+const btnLogin = document.getElementById("btnLogin");
+const btnLogout = document.getElementById("btn-logout");
 
-  const currentUsers = JSON.parse(localStorage.getItem("currentUsers"));
-  console.log(currentUsers);
-
-  if (currentUsers) {
-    // Check if elements exist before trying to access their properties
-    if (btnLogin) btnLogin.style.display = "none";
-    if (profile) profile.style.display = "flex";
-    if (greeting) greeting.innerText = `Xin chào, ${currentUsers.email}`;
+// kiểm tra xem user đã đăng nhập hay chưa
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    var uid = user.uid;
+    console.log(user);
+    // nếu đã đăng nhập thì hiển thị tên người dùng và ẩn nút đăng nhập
+    greeting.classList.remove("hidden");
+    displayName.innerText = user.displayName || user.email;
+    btnLogin.classList.add("hidden");
+    // ...
   } else {
-    if (btnLogin) btnLogin.style.display = "flex";
-    if (profile) profile.style.display = "none";
+    // nếu chưa đăng nhập thì ẩn tên người dùng và hiển thị nút đăng nhập
+    greeting.classList.add("hidden");
+    btnLogin.classList.remove("hidden");
   }
+});
+
+//đăng xuất khi nhấn vào nút logout
+btnLogout.addEventListener("click", () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      alert("Đăng xuất thành công!");
+    })
+    .catch((error) => {
+      // An error happened.
+    });
 });

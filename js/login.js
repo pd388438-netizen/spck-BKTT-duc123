@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!userExists) {
         Swal.fire({
           icon: "error",
-          title: "Bùm",
+          title: "Lỗi đăng nhập",
           text: "Sai tên đăng nhập hoặc mật khấu!",
           footer: '<a href="#">Why do I have this issue?</a>',
         });

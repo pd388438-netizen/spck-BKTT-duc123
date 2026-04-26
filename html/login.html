@@ -166,15 +166,45 @@
           />
 
           <button id="login-btn" class="btn btn-neutral mt-4">Login</button>
+          <div class="">
+            <p class="flex items-center justify-center text-xl bold">OR</p>
+            <button
+              type="button"
+              id="btn-google"
+              class="btn btn-outline-primary w-full h-10 flex items-center justify-center mt-4"
+            >
+              <img
+                src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/google-color.png"
+                alt=""
+                class="w-5"
+              />
+              Login with Google
+            </button>
+          </div>
+
           <a class="text-blue-500 underline" href="register.html"
             >Register here if you don't have an account</a
           >
         </fieldset>
       </form>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"
+    ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="../firebase.config.js"></script>
 
-    <script src="/js/login.js"></script>
+    <script defer src="/js/login.js"></script>
+    <script defer src="/js/goggle-login.js"></script>
     <footer
       class="bg-gray-100 border-t border-gray-300 mt-8 py-6 text-sm text-gray-700"
     >
