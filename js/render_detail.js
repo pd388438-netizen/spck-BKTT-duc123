@@ -1,11 +1,11 @@
 const postName = document.getElementById("tieu-de");
 const postcontent = document.getElementById("content");
-const postImg = document.getElementById("anh");
-const postName1 = document.getElementById("tieu-de1");
+const postImg = document.getElementById("image");
+const postName1 = document.getElementById("title1");
 const postContent1 = document.getElementById("content-1");
-const postName2 = document.getElementById("tieu-de2");
+const postName2 = document.getElementById("title2");
 const postContent2 = document.getElementById("content-2");
-const postName3 = document.getElementById("tieu-de3");
+const postName3 = document.getElementById("title3");
 const postContent3 = document.getElementById("content-3");
 
 const queryString = window.location.search;

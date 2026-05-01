@@ -14,7 +14,7 @@ formAddPost.addEventListener("submit", function (e) {
   const maincontent3 = formData.get("content-3");
   const image = formData.get("anh");
 
-  if (!titlemain.trim()) {
+  if (!titlemain) {
     Swal.fire({
       icon: "error",
       title: "Title is required",
@@ -25,23 +25,23 @@ formAddPost.addEventListener("submit", function (e) {
     return;
   }
 
-  if (!maincontent.trim()) {
+  if (!maincontent) {
     Swal.fire({
       icon: "error",
       title: "Main content is required",
       willClose: () => {
-        document.getElementById("main-content").focus();
+        document.getElementById("content").focus();
       },
     });
     return;
   }
 
-  if (!image.trim()) {
+  if (!image) {
     Swal.fire({
       icon: "error",
       title: "Image is required",
       willClose: () => {
-        document.getElementById("image").focus();
+        document.getElementById("anh").focus();
       },
     });
     return;
