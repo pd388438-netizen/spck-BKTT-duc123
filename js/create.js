@@ -1,20 +1,18 @@
-const formAddPost = document.getElementById("create-form");
+const submitButton = document.getElementById("btn-create");
 
-formAddPost.addEventListener("submit", function (e) {
+submitButton.addEventListener("click", function (e) {
   e.preventDefault();
-  const formData = new FormData(formAddPost);
+  const titlemain = document.getElementById("tieu-de").value;
+  const maincontent = document.getElementById("content").value;
+  const title1 = document.getElementById("tieu-de1").value;
+  const maincontent1 = document.getElementById("content-1").value;
+  const title2 = document.getElementById("tieu-de2").value;
+  const maincontent2 = document.getElementById("content-2").value;
+  const title3 = document.getElementById("tieu-de3").value;
+  const maincontent3 = document.getElementById("content-3").value;
+  const image = document.getElementById("anh").value;
 
-  const titlemain = formData.get("tieu-de");
-  const maincontent = formData.get("content");
-  const title1 = formData.get("tieu-de1");
-  const maincontent1 = formData.get("content-1");
-  const title2 = formData.get("tieu-de2");
-  const maincontent2 = formData.get("content-2");
-  const title3 = formData.get("tieu-de3");
-  const maincontent3 = formData.get("content-3");
-  const image = formData.get("anh");
-
-  if (!titlemain) {
+  if (!titlemain.trim()) {
     Swal.fire({
       icon: "error",
       title: "Title is required",
@@ -25,7 +23,7 @@ formAddPost.addEventListener("submit", function (e) {
     return;
   }
 
-  if (!maincontent) {
+  if (!maincontent.trim()) {
     Swal.fire({
       icon: "error",
       title: "Main content is required",
@@ -36,7 +34,7 @@ formAddPost.addEventListener("submit", function (e) {
     return;
   }
 
-  if (!image) {
+  if (!image.trim()) {
     Swal.fire({
       icon: "error",
       title: "Image is required",
@@ -47,7 +45,7 @@ formAddPost.addEventListener("submit", function (e) {
     return;
   }
 
-  const newProduct = {
+  const newPost = {
     title: titlemain,
     content: maincontent,
     title1: title1,
@@ -58,15 +56,15 @@ formAddPost.addEventListener("submit", function (e) {
     maincontent3: maincontent3,
     image: image,
   };
-  console.log(newProduct);
+  console.log(newPost);
   Swal.fire({
     icon: "loading",
     title: "Loading...",
     showConfirmButton: false,
   });
   const db = firebase.firestore();
-  db.collection("products")
-    .add(newProduct)
+  db.collection("posts")
+    .add(newPost)
     .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
       Swal.fire({

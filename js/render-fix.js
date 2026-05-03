@@ -1,32 +1,16 @@
 // lây ra id của thẻ chứa các món ăn
 const postContainer = document.getElementById("post-container");
 // lấy ra danh sách món ăn từ localStorage
-const posts = JSON.parse(localStorage.getItem("posts")) || [];
+const db = firebase.firestore();
 // duyệt qua từng món ăn và tạo thẻ HTML tương ứng
+
 let html = ``;
-
-const handleDeletePost = (id) => {
-  Swal.fire({
-    title: `Bạn có chắc chắn muốn xóa bài viết này không?`,
-    text: "Sau khi xóa bạn sẽ không thể khôi phục lại bài viết này!",
-    icon: "info",
-    willClose() {
-      // tìm index của món ăn cần xóa
-      const postIndex = posts.findIndex((f) => f.id === id);
-      // xóa món ăn khỏi mảng
-      if (postIndex !== -1) {
-        posts.splice(postIndex, 1);
-        // lưu lại mảng sau khi xóa vào localStorage
-        localStorage.setItem("posts", JSON.stringify(posts));
-        // làm mới lại trang
-        window.location.reload();
-      }
-    },
-  });
-};
-
-posts.forEach((post) => {
-  html += `
+db.collection("posts")
+  .get()
+  .then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const post = doc.data();
+      html += `
     <div id="post" class="border border-gray-200 shadow-sm p-3">
     <div class="bg-purple-200 flex h-8 items-center gap-3 font-bold">
           <div
@@ -49,15 +33,50 @@ posts.forEach((post) => {
           <img
             class="w-full h-60"
             id="post-img"
-            src="${post.img}"
+            src="${post.image}"
             alt=""
           />
         </div>
-        <a class="hover:text-blue-700 underline" href="../html/Fix.html?${post.id}">Sửa bài viết</a>
-        <button class="btn btn-error" onclick="handleDeletePost(${post.id});">Xóa</button>
+        <a class="hover:text-blue-700 underline" href="../html/Fix.html?${doc.id}">Sửa bài viết</a>
+        <button id="delete-post" onclick="deletePost('${doc.id}')" class="btn btn-error" ;">Xóa</button>
       </div>
     `;
-});
+      postContainer.innerHTML += html;
+    });
+  });
 
-// chèn các thẻ HTML vào trong thẻ chứa món ăn
-postContainer.innerHTML = html;
+function deletePost(id) {
+  console.log(id);
+  Swal.fire({
+    title: "Are you sure you want to delete this post?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const db = firebase.firestore();
+      db.collection("posts")
+        .doc(id)
+        .delete()
+        .then(() => {
+          console.log("Document successfully deleted!");
+          Swal.fire({
+            icon: "success",
+            title: "Delete post successfully",
+            willClose: () => {
+              window.location.href = "../index.html";
+            },
+          });
+        })
+        .catch((error) => {
+          console.error("Error removing document: ", error);
+          Swal.fire({
+            icon: "error",
+            title: "Error deleting post",
+          });
+        });
+    }
+  });
+}

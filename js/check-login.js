@@ -26,7 +26,10 @@ btnLogout.addEventListener("click", () => {
     .auth()
     .signOut()
     .then(() => {
-      alert("Đăng xuất thành công!");
+      Swal.fire({
+        icon: "success",
+        title: "Đăng xuất thành công",
+      });
     })
     .catch((error) => {
       // An error happened.

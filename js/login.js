@@ -1,45 +1,36 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const registerForm = document.getElementById("login-form");
-  console.log(registerForm);
+const formLogin = document.getElementById("login-form");
 
-  if (registerForm) {
-    registerForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      let email = e.target.email.value;
-      let password = e.target.password.value;
+formLogin.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const formData = new FormData(formLogin);
+  const email = formData.get("email");
+  const password = formData.get("password");
 
-      //lấy ra dữ liệu users từ localstorage
-      let users = JSON.parse(localStorage.getItem("users")) || [];
+  Swal.fire({
+    icon: "loading",
+    title: "Loading...",
+    showConfirmButton: false,
+  });
+  console.log({ email, password });
 
-      //kiểm tra email đã tồn tại chưa
-      let userExists = users.find(
-        (user) => user.email === email && user.password === password,
-      );
-      console.log(userExists);
-      if (!userExists) {
-        Swal.fire({
-          icon: "error",
-          title: "Lỗi đăng nhập",
-          text: "Sai tên đăng nhập hoặc mật khấu!",
-          footer: '<a href="#">Why do I have this issue?</a>',
-        });
-        return;
-      }
-
-      let newUser = {
-        email: userExists.email,
-        password: userExists.password,
-      };
-
-      localStorage.setItem("currentUsers", JSON.stringify(newUser));
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      var user = userCredential.user;
+      console.log(user);
       Swal.fire({
-        title: "Thành công!",
-        text: "Đăng nhập thành công!",
         icon: "success",
-        willClose: () => {
-          window.location.href = "../index.html";
-        },
+        title: "Login successfully",
+      });
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      Swal.fire({
+        icon: "error",
+        title: "Login failed",
+        text: "Ko tồn tại",
       });
     });
-  }
 });
