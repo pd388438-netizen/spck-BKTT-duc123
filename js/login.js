@@ -23,6 +23,7 @@ formLogin.addEventListener("submit", function (e) {
         icon: "success",
         title: "Login successfully",
       });
+      window.location.href = "../index.html";
     })
     .catch((error) => {
       var errorCode = error.code;
