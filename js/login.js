@@ -21,7 +21,7 @@ formLogin.addEventListener("submit", function (e) {
       console.log(user);
       Swal.fire({
         icon: "success",
-        title: "Login successfully",
+        title: "Đăng nhập thành công",
       });
       window.location.href = "../index.html";
     })
@@ -31,7 +31,7 @@ formLogin.addEventListener("submit", function (e) {
       Swal.fire({
         icon: "error",
         title: "Login failed",
-        text: "Ko tồn tại",
+        text: "Tài khoản hoặc mật khẩu không đúng",
       });
     });
 });

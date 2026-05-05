@@ -14,6 +14,7 @@ formRegister.addEventListener("submit", function (e) {
     Swal.fire({
       icon: "error",
       title: "Email is required",
+      text: "Vui lòng nhập email",
       willClose: () => {
         document.getElementById("email").focus();
       },
@@ -25,6 +26,7 @@ formRegister.addEventListener("submit", function (e) {
     Swal.fire({
       icon: "error",
       title: "Password is required",
+      text: "Vui lòng nhập mật khẩu",
       willClose: () => {
         document.getElementById("password").focus();
       },
@@ -35,7 +37,7 @@ formRegister.addEventListener("submit", function (e) {
   if (password !== repeatPassword) {
     Swal.fire({
       icon: "error",
-      title: "Password and repeat password do not match",
+      title: "Mật khẩu không khớp",
       willClose: () => {
         document.getElementById("repeatPassword").focus();
       },
@@ -55,7 +57,7 @@ formRegister.addEventListener("submit", function (e) {
       console.log(user);
       Swal.fire({
         icon: "success",
-        title: "Register successfully",
+        title: "Đăng ký thành công",
         willClose: () => {
           window.location.href = "./login.html";
         },
@@ -65,7 +67,7 @@ formRegister.addEventListener("submit", function (e) {
       var errorMessage = error.message;
       Swal.fire({
         icon: "error",
-        title: "Register failed",
+        title: "Đăng ký thất bại",
         text: errorMessage,
       });
     });
