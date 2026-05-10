@@ -14,8 +14,9 @@ submitButton.addEventListener("click", function (e) {
 
   if (!titlemain.trim()) {
     Swal.fire({
-      icon: "error",
       title: "Title is required",
+      icon: "error",
+
       willClose: () => {
         document.getElementById("tieu-de").focus();
       },
@@ -25,8 +26,9 @@ submitButton.addEventListener("click", function (e) {
 
   if (!maincontent.trim()) {
     Swal.fire({
-      icon: "error",
       title: "Main content is required",
+      icon: "error",
+
       willClose: () => {
         document.getElementById("content").focus();
       },
@@ -36,8 +38,9 @@ submitButton.addEventListener("click", function (e) {
 
   if (!image.trim()) {
     Swal.fire({
-      icon: "error",
       title: "Image is required",
+      icon: "error",
+
       willClose: () => {
         document.getElementById("anh").focus();
       },
@@ -69,8 +72,9 @@ submitButton.addEventListener("click", function (e) {
     .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
       Swal.fire({
+        title: "Thành công",
+        text: "Bài viết đã được thêm thành công",
         icon: "success",
-        title: "Thêm bài viết thành công",
         willClose: () => {
           window.location.href = "../index.html";
         },
@@ -79,9 +83,9 @@ submitButton.addEventListener("click", function (e) {
     .catch((error) => {
       console.error("Error adding document: ", error);
       Swal.fire({
-        icon: "error",
         title: "Thêm bài viết thất bại",
         text: error.message,
+        icon: "error",
       });
     });
 });

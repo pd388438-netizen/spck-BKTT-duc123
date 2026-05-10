@@ -41,7 +41,7 @@ db.collection("posts")
         <button id="delete-post" onclick="deletePost('${doc.id}')" class="btn btn-error" ;">Xóa</button>
       </div>
     `;
-      postContainer.innerHTML += html;
+      postContainer.innerHTML = html;
     });
   });
 
