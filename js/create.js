@@ -55,6 +55,7 @@ submitButton.addEventListener("click", function (e) {
     title3: title3,
     maincontent3: maincontent3,
     image: image,
+    keyword: titlemain.toLowerCase().trim(),
   };
   console.log(newPost);
   Swal.fire({
